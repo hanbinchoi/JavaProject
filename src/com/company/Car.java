@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Car {
     int speed;
     int distance;
@@ -17,5 +19,7 @@ public class Car {
     public int getCurrentSpeed(){
         return speed;
     }
+
+
 
 }
