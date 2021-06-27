@@ -15,13 +15,28 @@ public class Calculator {
     }
 
     public static void main(String[] args){
-        System.out.println("Started");
-
         Calculator calc = new Calculator();
-        System.out.println(calc.add(1,1));
-        System.out.println(calc.sub(1,1));
-        System.out.println(calc.multiply(1,1));
-        System.out.println(calc.divide(1,1));
+        try{
+            calc.printDivide(1,2);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        try{
+            calc.printDivide(1,0);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
 
+
+
+    }
+    public void printDivide(double d1, double d2) throws Exception{
+        if (d2 == 0.0) {
+            throw new Exception("Second value can't be Zero");
+        }
+        double result = d1/d2;
+
+
+        System.out.println(result);
     }
 }
