@@ -1,5 +1,7 @@
 package d.io;
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 
 import static java.io.File.separator;
 public class ManageTextFile {
@@ -40,6 +42,13 @@ public class ManageTextFile {
 
             }
         }
+    }
+    public void writeFileNIO(String fileName, String data) throws IOException {
+        FileChannel channel = new FileOutputStream(fileName).getChannel();
+        byte[] byteData = data.getBytes();
+        ByteBuffer buffer = ByteBuffer.wrap(byteData);
+        channel.write(buffer);
+        channel.close();
     }
     public void writeFile(String fileName, int numberCount){
         FileWriter fileWriter = null;
